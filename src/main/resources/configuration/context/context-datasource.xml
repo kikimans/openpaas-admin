@@ -12,11 +12,11 @@
 	
 	
 	
-<!-- 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> -->
-<!-- 	   	<property name="location"> -->
-<!-- 	   		<value>classpath:/configuration/context/bonecp.properties</value> -->
-<!-- 	   	</property> -->
-<!--     </bean> -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	   	<property name="location">
+	   		<value>classpath:/configuration/context/bonecp.properties</value>
+	   	</property>
+    </bean>
 	
 	<!-- BoneCp Configuration -->
 	<bean id="mainDataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">

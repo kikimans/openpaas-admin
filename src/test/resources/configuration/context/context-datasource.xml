@@ -12,7 +12,7 @@
 		
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 	   	<property name="location">
-	   		<value>classpath:/configuration/context/properties/bonecp.properties</value>
+	   		<value>classpath:/configuration/context/bonecp.properties</value>
 	   	</property>
     </bean>
 
