@@ -3,6 +3,7 @@
  */
 package kr.cloudsc.admin.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -13,6 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
 import org.hibernate.annotations.GenericGenerator;
 
 /*
@@ -33,7 +36,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name="TB_ADMIN")
-public class AdminUser {
+public class AdminUser implements Serializable{
 	
 	@Id
 	@GeneratedValue(generator="increment")
@@ -51,12 +54,12 @@ public class AdminUser {
 	private String passwd;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="UPDATE_DT")
-	private Date updateTime;
+	@Column(name="UPDATE_DT", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	private Date updateTime = new Date();
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="INSERT_DT")
-	private Date insertTime;
+	@Column(name="INSERT_DT", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	private Date insertTime = new Date();
 	
 	
 
@@ -146,7 +149,9 @@ public class AdminUser {
 	 * 
 	 */
 	public AdminUser() {
-		// TODO Auto-generated constructor stub
+		this.insertTime = new Date();
+		this.updateTime = new Date();
+		
 	}
 
 }

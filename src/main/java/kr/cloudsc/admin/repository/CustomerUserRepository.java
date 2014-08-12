@@ -3,7 +3,7 @@
  */
 package kr.cloudsc.admin.repository;
 
-import kr.cloudsc.admin.entity.AdminUser;
+import kr.cloudsc.admin.entity.CustomerUser;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,18 +17,14 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * <pre>
  * kr.cloudsc.admin.repository
- * AdminUserRepository.java
+ * CustomerUserRepository.java
  * </pre>
  *
  * @author  : kikimans
- * @Date    : 2014. 8. 11.
+ * @Date    : 2014. 8. 12.
  * @Version : 
  */
 @Transactional
-public interface AdminUserRepository extends CrudRepository<AdminUser, Integer> {
-
-	AdminUser findByEmail(String email);
-
-	AdminUser findByEmailAndPasswd(String email, String password);
+public interface CustomerUserRepository extends CrudRepository<CustomerUser, Integer> {
 
 }
