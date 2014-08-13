@@ -9,7 +9,7 @@
   <!-- parent spring bean xml -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:/configuration/context-root.xml</param-value>
+        <param-value>classpath:configuration/context_root.xml</param-value>
     </context-param>
  
     <!-- application listener -->

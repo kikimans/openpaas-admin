@@ -121,6 +121,8 @@
 		<artifactId>bonecp</artifactId>
 		<version>0.7.1.RELEASE</version>	
 	</dependency>
+	<!-- spring -->
+	
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-webmvc</artifactId>
@@ -138,7 +140,13 @@
 	</dependency>	
   </dependencies>
   <build>
-    <finalName>openpaasAdmin.cloudsc.kr</finalName>
+    <finalName>openpaasAdmin</finalName>
+    <resources>
+	   <resource>
+	    <directory>src/main/resources</directory>
+	    <filtering>true</filtering>
+	   </resource>
+	 </resources>
     <plugins>
     	<plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -148,6 +156,14 @@
                 <source>1.7</source>
                 <target>1.7</target>
                 <encoding>UTF-8</encoding>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>2.2</version>
+            <configuration>
+                <warSourceDirectory>src/main/webapp</warSourceDirectory>                           
             </configuration>
         </plugin>
     </plugins>
