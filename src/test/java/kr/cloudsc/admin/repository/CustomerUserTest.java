@@ -3,11 +3,13 @@ package kr.cloudsc.admin.repository;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kr.cloudsc.admin.entity.CustomerUser;
 import kr.cloudsc.admin.service.CustomerUserService;
 import kr.cloudsc.admin.service.impl.ICustomerUserService;
+import kr.cloudsc.admin.service.impl.IOpenPaasService;
 
 import org.jboss.logging.Logger;
 import org.junit.Before;
@@ -33,6 +35,9 @@ public class CustomerUserTest {
 
 	@Autowired
 	private ICustomerUserService cUserSerice;
+	
+	@Autowired
+	private IOpenPaasService openpaasService;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -65,9 +70,8 @@ public class CustomerUserTest {
 		user.setPasswd("alsgh@1716");
 		user.setStatus('1');
 		user.setGearKind("S");
-		user.setUsertype("01");
-		
-		cUserSerice.register(user);
+		user.setUsertype("01");		
+		cUserSerice.register(user);		
 		
 		CustomerUser user1 = new CustomerUser();
 		user1.setPublicNm("조민호");
@@ -88,5 +92,37 @@ public class CustomerUserTest {
 		
 		assertThat(cUsers.isEmpty(), is(false));
 	}
+	
+	@Test
+	public void test_사용자Gear정보가져오기(){
+		CustomerUser user = new CustomerUser();
+		user.setPublicNm("조민호");
+		user.setChargeNm("제이예스");
+		user.setEmail("kikimans@jyes.co.kr");
+		user.setPasswd("alsgh@1716");
+		user.setStatus('2');
+		user.setGearKind("S");
+		user.setUsertype("01");		
+		cUserSerice.register(user);		
+		
+		CustomerUser user1 = new CustomerUser();
+		user1.setPublicNm("조민호");
+		user1.setChargeNm("제이예스");
+		user1.setEmail("kikimans@jyes.co.kr2");
+		user1.setPasswd("alsgh@1716");
+		user1.setStatus('1');
+		user1.setGearKind("S");
+		user1.setUsertype("01");
+		
+		cUserSerice.register(user1);
+		
+		List<CustomerUser> cUsers = cUserSerice.getAllCustomerUsers();
+		int cnt = cUserSerice.setGearCnt(cUsers);
+		assertThat(cnt, is(1));	
+		
+	}
+	
+	
+	
 
 }

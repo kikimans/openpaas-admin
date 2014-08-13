@@ -2,7 +2,7 @@
 <configuration scan="true" scanPeriod="30 seconds">	
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n</pattern>
+			<pattern>▶ %-5level %d{HH:mm:ss.SSS} [%thread] %logger{36}[%method:%line] - %msg%n</pattern>
 		</encoder>
 	</appender>
 	
@@ -12,7 +12,7 @@
 	<logger name="org.springframework" level="INFO" />
 	<!-- <logger name="kr.cloudsc.openpaas" level="DEBUG" /> -->		
 	
-	<root level="warn">
+	<root level="info">
 		<appender-ref ref="console"/>		
 	</root>
 </configuration>

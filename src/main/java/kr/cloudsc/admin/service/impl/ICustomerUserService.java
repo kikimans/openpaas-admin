@@ -16,6 +16,10 @@ public interface ICustomerUserService {
 
 	List<CustomerUser> getAllCustomerUsers();
 
+	List<CustomerUser> updateUsers(List<CustomerUser> cUsers);
+
+	int setGearCnt(List<CustomerUser> cUsers);
+
 	
 
 }

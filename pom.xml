@@ -50,13 +50,20 @@
     	<artifactId>mockito-all</artifactId>
     	<version>1.9.5</version>
     </dependency>
-    <!-- openshift java client 
+    <!-- openshift java client --> 
     <dependency>
     	<groupId>com.openshift</groupId>
     	<artifactId>openshift-java-client</artifactId>
     	<version>2.5.0.Final</version>
+    	<exclusions>
+            <!-- Exclude Commons Logging in favor of SLF4j -->
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+       			<artifactId>slf4j-log4j12</artifactId>
+            </exclusion>
+        </exclusions>
     </dependency>
-    -->   
+      
     <!--  json mapping -->
     <dependency>
         <groupId>org.codehaus.jackson</groupId>
@@ -122,13 +129,13 @@
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-test</artifactId>
-		<version>3.2.10.RELEASE</version>
+		<version>3.2.10.RELEASE</version>		
 	</dependency>
 	<dependency>
 		<groupId>org.neo4j</groupId>
 		<artifactId>neo4j-cypher-compiler-2.1</artifactId>
 		<version>2.1.2</version>
-	</dependency>
+	</dependency>	
   </dependencies>
   <build>
     <finalName>openpaasAdmin.cloudsc.kr</finalName>

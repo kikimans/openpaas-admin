@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration scan="true" scanPeriod="30 seconds">	
+<configuration scan="true" scanPeriod="30 seconds">
+	<contextName>openpaasAdmin</contextName>	
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{100} - %msg%n</pattern>
+			<pattern>▶ %-5level %d{HH:mm:ss.SSS} [%contextName] [%thread] %logger{50}[%method:%line] - %msg%n</pattern>
 		</encoder>
 	</appender>
 	
@@ -12,7 +13,7 @@
 	<logger name="org.springframework" level="INFO" />
 	<!-- <logger name="kr.cloudsc.openpaas" level="DEBUG" /> -->		
 	
-	<root level="warn">
+	<root level="info">
 		<appender-ref ref="console"/>		
 	</root>
 </configuration>
