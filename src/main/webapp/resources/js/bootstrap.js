@@ -188,7 +188,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   Button.prototype.setState = function (state) {
     var d    = 'disabled'
-    var $el  = this.$element
+    var $el  = this.$element    
     var val  = $el.is('input') ? 'val' : 'html'
     var data = $el.data()
 
